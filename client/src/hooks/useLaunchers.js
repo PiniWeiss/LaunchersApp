@@ -14,16 +14,17 @@ export const useLaunchers = () => {
             try {
                 const res = await fetch(BASE_URL)
                 if (!res.ok) throw new Error("Faild to fetch launchers")
-                const data = res.json()
+                const data = await res.json()
                 setLaunchers(data.data)
+
             } catch (err) {
                 console.log(err.message)
                 setError(err)
-            }finally{
+            } finally {
                 setIsLoading(false)
             }
-            loadLaunchers()
         }
+        loadLaunchers()
     }, [])
-    return {launchers, error, isLoading}
+    return { launchers, error, isLoading }
 }

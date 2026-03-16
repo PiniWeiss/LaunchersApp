@@ -23,7 +23,7 @@ export const createLauncher = async (req, res) => {
             longitude
         })
         newLauncher.save()
-        return res.status(200).json({ message: 'get user info succrssfully', data: newLaunch })
+        return res.status(200).json({ message: 'get user info succrssfully', data: newLauncher })
     } catch (error) {
         console.log('Error in createLauncher controller', error.message);
         return res.status(500).json({ message: 'Internal server error ' });
