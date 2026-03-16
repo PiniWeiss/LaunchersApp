@@ -1,6 +1,6 @@
-import React from 'react'
 
-function LauncherDetails() {
+
+function LauncherDetails({id}) {
   return (
     <div>LauncherDetails</div>
   )

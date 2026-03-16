@@ -44,3 +44,17 @@ export const deleteLauncher = async (req, res) => {
     }
 }
 
+
+export const getLauncherById = async (req, res) => {
+    try {
+        const { id } = req.params
+
+        const launcher = await Launcher.findById(id)
+        if (!launcher) res.status(404).json({ message: "Launcher not found." })
+        res.status(200).json({ message: "launcher found successfully", data: launcher })
+    } catch (error) {
+        console.log('Error in getLauncherById controller', error.message);
+        return res.status(500).json({ message: 'Internal server error ' });
+
+    }
+}
