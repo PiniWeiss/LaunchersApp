@@ -10,9 +10,9 @@ function Home() {
     <div className='home-page'>
       {error && <div className='error-loading'>{error.message}</div>}
       <h2>all launchers </h2>
-      {isLoading ? <p>loading data...</p>:
+      
       <LaunchersTable/>
-      }
+      
     </div>
   )
 }

@@ -1,9 +1,11 @@
 
+import { useNavigate } from 'react-router'
 import { useLaunchers } from '../hooks/useLaunchers'
-import LauncherDetails from '../pages/launcherDetails'
 
 function LaunchersTable() {
-    const { launchers, handleSearchClick, handleSearchChange } = useLaunchers()
+    const { launchers, handleSearchClick, isLoading, handleSearchChange } = useLaunchers()
+    const navigate = useNavigate()
+
     return (
         <div>
             <form className='searchform'>
@@ -13,26 +15,28 @@ function LaunchersTable() {
                 <input type="text" placeholder='Enter rocket type' />
                 <button onClick={handleSearchClick}>Search</button>
             </form>
+            {isLoading ? <p>loading data...</p> :
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>name</th>
+                            <th>city</th>
+                            <th>rocketType</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-            <table>
-                <thead>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>city</th>
-                    <th>rocketType</th>
-                </thead>
-                <tbody>
-                
-                {launchers.map(l => (
-                    <tr key={l._id}>
-                        <button onClick={<LauncherDetails id={l._id}/>}>
-                        <td>{l._id}</td>
-                        <td>{l.name}</td>
-                        <td>{l.city}</td>
-                        <td>{l.rocketType}</td></button>
-                    </tr>
-                ))}</tbody>
-            </table>
+                        {launchers.map(l => (
+                            <tr key={l._id} onClick={() => navigate(`/launcherdetails/${l._id}`)}>
+                                <td>{l._id}</td>
+                                <td>{l.name}</td>
+                                <td>{l.city}</td>
+                                <td>{l.rocketType}</td>
+                                
+                            </tr>
+                        ))}</tbody>
+                </table>}
         </div>
     )
 }

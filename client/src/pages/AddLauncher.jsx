@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import { useCreateLauncher } from '../hooks/useCreateLauncher'
+import "./AddLauncher.css"
 
 function AddLauncher() {
   const { error, isLoading, success, setSuccess, successData, handleChange, handleSubmit } = useCreateLauncher()
@@ -25,7 +26,7 @@ function AddLauncher() {
         <h2>Launcher created succesfuly</h2>
         <p>Launcher name: {successData.name}</p>
         <button onClick={() => setSuccess(false)}>Add one more</button>
-        <Link to={"/addlauncher"}>Add one more</Link>
+       
       </div>
     )
   }
