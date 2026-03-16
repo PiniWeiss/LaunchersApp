@@ -14,7 +14,7 @@ function LaunchersTable() {
             </form>
             {launchers.map(l => (
                 <div key={l._id}>
-                    <p>{l.name}</p>
+                    
                 </div>
             ))}
         </div>

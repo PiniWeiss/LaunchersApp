@@ -31,3 +31,16 @@ export const createLauncher = async (req, res) => {
     }
 }
 
+export const deleteLauncher = async (req, res) => {
+    try {
+        const { id } = req.params
+
+        const LauncherToDelete = await Launcher.findByIdAndDelete(id)
+        return res.status(201).json({ message: 'launcher deleted successfully' })
+    } catch (error) {
+        console.log('Error in deleteLauncher controller', error.message);
+        return res.status(500).json({ message: 'Internal server error ' });
+
+    }
+}
+
