@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use("/api/launcher", launcherRoute)
+app.use("/api/launchers", launcherRoute)
 
 app.listen(PORT, () => {
   connectDb();
