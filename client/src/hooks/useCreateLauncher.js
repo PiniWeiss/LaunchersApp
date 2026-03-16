@@ -2,16 +2,18 @@ import { useState } from "react"
 
 const BASE_URL = "http://localhost:3000/api/launchers"
 
-export const createLaunchers = () => {
+export const useCreateLauncher = () => {
     const [formData, setFormData] = useState()
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [success, setSuccess] = useState(false)
+    const [successData, setSuccessData] = useState()
 
     const handleChange = (e) => {
-        setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
+        setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
     }
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         setIsLoading(true)
         try {
             const res = await fetch(BASE_URL, {
@@ -21,15 +23,14 @@ export const createLaunchers = () => {
             })
             const { data } = await res.json()
             setSuccess(true)
-            return data
+            setSuccessData(data)
         }
         catch (err) {
             console.log(err.message)
             setError(err)
-        }finally{
-            setForm({})
+        } finally {
             setIsLoading(false)
         }
     }
-    return { setFormData, error, isLoading, success, handleChange, handleSubmit }
+    return { setFormData,setSuccess, error, isLoading, success,successData , handleChange, handleSubmit }
 } 

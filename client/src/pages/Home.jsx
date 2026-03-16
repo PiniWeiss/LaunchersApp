@@ -1,6 +1,7 @@
 
 import { useLaunchers } from '../hooks/useLaunchers'
 import LaunchersTable from '../components/LaunchersTable'
+import Navbar from '../components/Navbar'
 
 function Home() {
   const { error, isLoading} = useLaunchers()

@@ -1,41 +1,12 @@
-import { Link } from 'react-router';
+
 import { useCreateLauncher } from '../hooks/useCreateLauncher'
 
-function AddLauncher() {
-  const { error, isLoading, success, setSuccess, successData, handleChange, handleSubmit } = useCreateLauncher()
-  if (isLoading) {
-    return (
-      <p>loading...</p>
-    )
-  }
-
-  if (error) {
-    return (
-      <div>
-        <h2>Create Launcher faild..</h2>
-        <button >Try Again</button>
-        <Link to={"/"}>Go to Home page</Link>
-      </div>
-    )
-  }
-
-  if (success) {
-    return (
-      <div>
-        <h2>Launcher created succesfuly</h2>
-        <p>Launcher name: {successData.name}</p>
-        <button onClick={() => setSuccess(false)}>Add one more</button>
-        <Link to={"/addlauncher"}>Add one more</Link>
-      </div>
-    )
-  }
-
-
+function Add() {
+    const {isLoading, handleChange, handleSubmit } = useCreateLauncher()
   return (
     <div>
-      
       <h2>AddLauncher Page</h2>
-
+    
       <div className='form-area'>
         <form className='form' onSubmit={handleSubmit} >
           <div className='input-area' >
@@ -71,4 +42,4 @@ function AddLauncher() {
   )
 }
 
-export default AddLauncher
+export default Add

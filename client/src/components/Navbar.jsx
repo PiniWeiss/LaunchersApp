@@ -6,6 +6,7 @@ function Navbar() {
     <div>
       <h1>LauncherApp</h1>
       <Link to={"/"}>Home</Link>
+      <Link to={"/addlauncher"}>addlauncher</Link>
     </div>
   );
 }

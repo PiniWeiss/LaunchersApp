@@ -7,6 +7,7 @@ export const useLaunchers = () => {
     const [launchers, setLaunchers] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
+    const [filters, setFilters] = useState({ city: "", rocketType: "" })
 
     useEffect(() => {
         const loadLaunchers = async () => {
@@ -26,5 +27,17 @@ export const useLaunchers = () => {
         }
         loadLaunchers()
     }, [])
-    return { launchers, error, isLoading }
+
+    const handleSearchChange = (e) => {
+        setFilters(prev => ({ ...prev, [e.target.name]: e.target.value }))
+    }
+    const handleSearchClick = (e) => {
+        e.preventDefault()
+        setLaunchers(prevLaunchers => {
+            filters.city ? prevLaunchers =  prevLaunchers.filter(l.city.includes(filters.city)) : prevLaunchers
+            filters.rocketType ? prevLaunchers = prevLaunchers.filter(l.rocketType.includes(filters.rocketType)) : prevLaunchers
+        })
+    }
+
+    return { launchers, error, isLoading, handleSearchChange, handleSearchClick }
 }
