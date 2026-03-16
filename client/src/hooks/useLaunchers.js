@@ -8,7 +8,6 @@ export const useLaunchers = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
     const [filters, setFilters] = useState({ city: "", rocketType: "" })
-    const [filteredLaunchers, setFilteredLaunchers] = useState([])
 
     useEffect(() => {
         const loadLaunchers = async () => {
@@ -35,8 +34,11 @@ export const useLaunchers = () => {
 
     const handleSearchClick = (e) => {
         e.preventDefault()
-        const updatedData = launchers.filter(l => l.city === filter.city && l.rocketType === filters.rocketType)
-        setFilteredLaunchers(updatedData)
+        const updatedList = launchers.filter(l => 
+             l.city.includes(filters.city.toLowerCase()) && l.rocketType.includes(filters.rocketType.toLowerCase())
+        )
+        console.log(filters)
+        setLaunchers(updatedList)
     }
 
     return { launchers, error, isLoading, handleSearchChange, handleSearchClick }

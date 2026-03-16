@@ -10,9 +10,9 @@ function LaunchersTable() {
         <div>
             <form className='searchform'>
                 <label >Serch Launcher by city: </label>
-                <input type="text" placeholder='Enter city name' onChange={handleSearchChange} />
+                <input name='city' type="text" placeholder='Enter city name' onChange={handleSearchChange} />
                 <label >Serch Launcher by rocketType: </label >
-                <input type="text" placeholder='Enter rocket type' />
+                <input name='rocketType' type="text" placeholder='Enter rocket type' onChange={handleSearchChange}/>
                 <button onClick={handleSearchClick}>Search</button>
             </form>
             {isLoading ? <p>loading data...</p> :
