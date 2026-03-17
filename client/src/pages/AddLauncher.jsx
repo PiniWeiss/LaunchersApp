@@ -50,7 +50,7 @@ function AddLauncher() {
               <option value="Shahab3">Shahab3</option>
               <option value="Fetah110">Fetah110</option>
               <option value="Radwan">Radwan</option>
-              <option value="Kheibar">Kheibar</option>
+              <option value="Kheibar">Kheiba</option>
             </select>
           </div>
           <div onChange={handleChange} className='input-area'>
