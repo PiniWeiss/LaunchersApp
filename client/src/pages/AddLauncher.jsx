@@ -26,7 +26,7 @@ function AddLauncher() {
         <h2>Launcher created succesfuly</h2>
         <p>Launcher name: {successData.name}</p>
         <button onClick={() => setSuccess(false)}>Add one more</button>
-       
+
       </div>
     )
   }
@@ -34,7 +34,7 @@ function AddLauncher() {
 
   return (
     <div>
-      
+
       <h2>AddLauncher Page</h2>
 
       <div className='form-area'>

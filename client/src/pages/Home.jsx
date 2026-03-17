@@ -1,18 +1,17 @@
 
 import { useLaunchers } from '../hooks/useLaunchers'
 import LaunchersTable from '../components/LaunchersTable'
-import Navbar from '../components/Navbar'
 
 function Home() {
-  const { error, isLoading} = useLaunchers()
+  const { error, isLoading } = useLaunchers()
 
   return (
     <div className='home-page'>
       {error && <div className='error-loading'>{error.message}</div>}
       <h2>all launchers </h2>
-      
-      <LaunchersTable/>
-      
+
+      <LaunchersTable />
+
     </div>
   )
 }

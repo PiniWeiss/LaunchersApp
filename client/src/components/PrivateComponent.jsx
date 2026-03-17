@@ -13,7 +13,7 @@ function PrivateComponent({userTypes, children}) {
     }
     
     if(!userTypes.includes(user?.userType)){
-        return <Navigate to={`/${userType}`}/>
+        return <Navigate to={`/${user.userType}`}/>
     }
 
   return (

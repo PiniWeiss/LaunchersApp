@@ -5,13 +5,13 @@ import { useNavigate } from "react-router"
 export const useLaunchersDetails = (url) => {
     const [error, setError] = useState()
     const [data, setData] = useState()
-const navigate = useNavigate()
-    
+    const navigate = useNavigate()
+
     useEffect(() => {
         const fetchLauncher = async () => {
             try {
                 const res = await fetch(url)
-                const {data} = await res.json()
+                const { data } = await res.json()
                 setData(data)
             } catch (error) {
                 setError(error)
@@ -20,14 +20,14 @@ const navigate = useNavigate()
         fetchLauncher()
     }, [])
 
-     const deleteLauncher = async (url) => {
+    const deleteLauncher = async (url) => {
         const res = await fetch(url, {
-            method:"DELETE"
+            method: "DELETE"
         })
         const data = await res.json()
         setData(data)
         navigate("/home")
     }
 
-    return { error, data, deleteLauncher}
+    return { error, data, deleteLauncher }
 }

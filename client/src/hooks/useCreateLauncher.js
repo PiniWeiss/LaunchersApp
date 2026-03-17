@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const BASE_URL = "http://localhost:3000/api/launchers"
+const URL = "http://localhost:3000/api/launchers"
 
 export const useCreateLauncher = () => {
     const [formData, setFormData] = useState()
@@ -16,7 +16,7 @@ export const useCreateLauncher = () => {
         e.preventDefault();
         setIsLoading(true)
         try {
-            const res = await fetch(BASE_URL, {
+            const res = await fetch(URL, {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)

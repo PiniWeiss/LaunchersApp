@@ -21,7 +21,7 @@ export const createLauncher = async (req, res) => {
             rocketType,
             latitude,
             longitude,
-            destroyed:false
+            destroyed: false
         })
         newLauncher.save()
         return res.status(200).json({ message: 'create launcher successfully', data: newLauncher })

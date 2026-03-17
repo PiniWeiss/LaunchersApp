@@ -2,12 +2,12 @@ import { useUsers } from "../hooks/useUsers"
 
 
 function MenageUsers() {
-     const { users, isLoading } = useUsers()
-  return (
-    
+    const { users, isLoading } = useUsers()
+    return (
+
         <div>
 
-<h2>Users Maneger</h2>
+            <h2>Users Maneger</h2>
 
             {isLoading ? <p>loading data...</p> :
                 <table>
@@ -30,12 +30,12 @@ function MenageUsers() {
                                 <td>{u.userType}</td>
                                 <td>{u.email}</td>
                                 <td>{u.lastLogin}</td>
-                                
+
                             </tr>
                         ))}</tbody>
                 </table>}
         </div>
-  )
+    )
 }
 
 export default MenageUsers

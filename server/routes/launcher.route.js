@@ -8,6 +8,6 @@ router.get('/', auth(["admin", "airSoldier", "intelligenceSoldier"]), getLaunche
 router.get('/:id', auth(["admin", "airSoldier", "intelligenceSoldier"]), getLauncherById);
 router.delete('/:id', auth(["admin", "intelligenceSoldier"]), deleteLauncher);
 router.post('/', auth(["admin", "intelligenceSoldier"]), createLauncher);
-// router.put('/', 'controller Function');
+
 
 export default router;

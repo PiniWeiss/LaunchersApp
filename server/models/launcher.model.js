@@ -1,34 +1,34 @@
 import mongoose from "mongoose";
 
 const launcherSchema = new mongoose.Schema({
-    name:{
+    name: {
         type: String,
-        required: true, 
-        
+        required: true,
+
     },
     city: {
         type: String,
-        required: true, 
+        required: true,
     },
-    rocketType:{
-        type:String,
+    rocketType: {
+        type: String,
         required: true,
         enum: ["Shahab3", "Fetah110", "Radwan", "Kheiba"],
     },
-    latitude:{
+    latitude: {
         type: Number,
         required: true
     },
     longitude: {
         type: Number,
         required: true
-        
+
     },
-    destroyed:{
+    destroyed: {
         type: Boolean,
         required: false
     }
-}, {timestamps: true});
+}, { timestamps: true });
 
 
 const Launcher = mongoose.model("Launcher", launcherSchema);
