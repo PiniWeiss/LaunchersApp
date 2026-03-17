@@ -11,7 +11,7 @@ function Login() {
 
     useEffect(() => {
         if (isLoggedIn && user) {
-            navigate(`/${user.userType}`)
+            navigate(`/`)
         }
     }, [isLoggedIn, user])
 

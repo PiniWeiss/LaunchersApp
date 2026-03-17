@@ -7,10 +7,12 @@ function Navbar() {
   return (
     <div className='navbar'>
       <h1 >LauncherApp</h1>
+      {user && <p>Hello {user.userName}</p>}
       <ul className='navbar-links'>
-     {user && <li> <Link className='link' to={"/"}>Home</Link></li>}
-      {user?.userType === "admin"&& <li><Link className='link' to={"/addlauncher"}>Add Launcher</Link></li>}
-      {isLoggedIn && <li><button onClick={logOut}>LogOut</button></li>}
+        {user?.userType === "admin" && <li> <Link className='link' to={"/users"}>Users List</Link></li>}
+        {user && <li> <Link className='link' to={"/"}>Home</Link></li>}
+        {user?.userType === "admin" && <li><Link className='link' to={"/addlauncher"}>Add Launcher</Link></li>}
+        {isLoggedIn && <li><button className='link' onClick={logOut}>LogOut</button></li>}
       </ul>
     </div>
   );

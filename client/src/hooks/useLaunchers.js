@@ -13,7 +13,9 @@ export const useLaunchers = () => {
         const loadLaunchers = async () => {
             setIsLoading(true)
             try {
-                const res = await fetch(BASE_URL)
+                const res = await fetch(BASE_URL, {
+                    credentials: "include"
+                })
                 if (!res.ok) throw new Error("Faild to fetch launchers")
                 const data = await res.json()
                 setLaunchers(data.data)
@@ -34,8 +36,12 @@ export const useLaunchers = () => {
 
     const handleSearchClick = (e) => {
         e.preventDefault()
-        const updatedList = launchers.filter(l => 
-             l.city.includes(filters.city.toLowerCase()) && l.rocketType.includes(filters.rocketType.toLowerCase())
+        const updatedList = launchers.filter(l =>
+            filters.city && filters.rocketType ?
+                l.city.toLowerCase().includes(filters.city.toLowerCase()) &&
+                l.rocketType.toLowerCase().includes(filters.rocketType.toLowerCase()) : filters.city ?
+                    l.city.toLowerCase().includes(filters.city.toLowerCase()) :
+                    l.city.toLowerCase().includes(filters.city.toLowerCase())
         )
         console.log(filters)
         setLaunchers(updatedList)
