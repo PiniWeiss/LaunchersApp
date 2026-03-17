@@ -1,4 +1,4 @@
-import Launcher from "../models/db.model.js";
+import Launcher from "../models/launcher.model.js";
 
 export const getLaunchers = async (req, res) => {
     try {
