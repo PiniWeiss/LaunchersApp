@@ -22,7 +22,11 @@ const launcherSchema = new mongoose.Schema({
     longitude: {
         type: Number,
         required: true
-
+        
+    },
+    destroyed:{
+        type: Boolean,
+        required: false
     }
 }, {timestamps: true});
 
